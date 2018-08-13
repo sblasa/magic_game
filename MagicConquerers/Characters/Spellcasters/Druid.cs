@@ -1,4 +1,5 @@
 ﻿using System;
+using MagicConquerers.Enums;
 using MagicConquerers.Equipment.Armors.Leather;
 using MagicConquerers.Equipment.Weapons.Blunt;
 
@@ -6,8 +7,17 @@ namespace MagicConquerers.Characters.Spellcasters
 {
     public class Druid
     {
+        private const string DEFAULT_NAME = "Artemis";
+        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
+        private const int DEFAULT_LEVEL = 3;
+        private const int DEFAULT_ABILITY_POINTS = 220;
+        private const int DEFAULT_HEALTH_POINTS = 140;
+
+        private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
+        private readonly Staff DEFAULT_WEAPON = new Staff();
+
         private int abilityPoints;
-        private string faction;
+        private Faction faction;
         private int healthPoints;
         private int level;
         private string name;
@@ -36,7 +46,7 @@ namespace MagicConquerers.Characters.Spellcasters
         }
 
 
-        public string Faction
+        public Faction Faction
         {
             get
             {
@@ -46,14 +56,9 @@ namespace MagicConquerers.Characters.Spellcasters
 
             set
             {
-                if (value == "Melee" || value == "Spellcasters")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "This is an incorrect faction.");
-                }
+
+                this.faction = value;
+
             }
         }
 
@@ -145,14 +150,14 @@ namespace MagicConquerers.Characters.Spellcasters
         }
 
         public Druid()
-            :this("Tish", 1)
+            :this(DEFAULT_NAME, 1)
         {
 
         }
 
 
         public Druid(string name, int level)
-            : this(name, level, 120)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
         }
 
@@ -161,10 +166,10 @@ namespace MagicConquerers.Characters.Spellcasters
             this.Name = name;
             this.Level = level;
             this.HealthPoints = healthPoints;
-            this.Faction = "Spellcasters";
-            this.AbilityPoints = 100;
-            this.Weapon = new Staff();
-            this.BodyArmor = new LightLeatherVest();
+            this.Faction = DEFAULT_FACTION;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.Weapon = DEFAULT_WEAPON;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void Moonfire()

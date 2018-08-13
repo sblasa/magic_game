@@ -1,4 +1,5 @@
 ﻿using System;
+using MagicConquerers.Enums;
 using MagicConquerers.Equipment.Armors.Heavy;
 using MagicConquerers.Equipment.Weapons.Sharp;
 
@@ -6,8 +7,19 @@ namespace MagicConquerers.Characters.Melee
 {
     public class Warrior
     {
+        private const string DEFAULT_NAME = "Braveheart";
+        private const Faction DEFAULT_FACTION = Faction.Melee;
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_ABILITY_POINTS = 200;
+        private const int DEFAULT_HEALTH_POINTS = 115;
+
+        private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
+        private readonly Axe DEFAULT_WEAPON = new Axe();
+
+
+
         private int abilityPoints;
-        private string faction;
+        private Faction faction;
         private int healthPoints;
         private string name;
         private int level;
@@ -36,7 +48,7 @@ namespace MagicConquerers.Characters.Melee
         }
 
 
-        public string Faction
+        public Faction Faction
         {
             get
             {
@@ -46,14 +58,8 @@ namespace MagicConquerers.Characters.Melee
 
             set
             {
-                if(value == "Melee" || value == "Spellcasters")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "This is an incorrect faction.");
-                }
+
+                this.faction = value;
             }
         }
 
@@ -147,25 +153,25 @@ namespace MagicConquerers.Characters.Melee
 
 
         public Warrior()
-            :this ("Little Debbie", 1)
+            :this (DEFAULT_NAME, 1)
         {
 
         }
 
         public Warrior(string name, int level)
-            : this(name, level, 120)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
         }
 
         public Warrior(string name, int level, int healthPoints)
         {
-            this.Name = name;
+            this.Name = DEFAULT_NAME;
             this.Level = level;
             this.HealthPoints = healthPoints;
-            this.Faction = "Melee";
-            this.AbilityPoints = 100;
-            this.Weapon = new Axe();
-            this.BodyArmor = new Chainlink();
+            this.Faction = DEFAULT_FACTION;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.Weapon = DEFAULT_WEAPON ;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void Strike()
@@ -183,12 +189,5 @@ namespace MagicConquerers.Characters.Melee
             throw new NotImplementedException();
         }
 
-        public override bool Equals(object obj)
-        {
-            var warrior = obj as Warrior;
-            return warrior != null &&
-                   Name == warrior.Name &&
-                   Level == warrior.Level;
-        }
     }
 }

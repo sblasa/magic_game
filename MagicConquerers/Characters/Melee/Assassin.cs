@@ -1,4 +1,5 @@
 ﻿using System;
+using MagicConquerers.Enums;
 using MagicConquerers.Equipment.Armors.Leather;
 using MagicConquerers.Equipment.Weapons.Sharp;
 
@@ -6,8 +7,17 @@ namespace MagicConquerers.Characters.Melee
 {
     public class Assassin
     {
+        private const string DEFAULT_NAME = "Nakita";
+        private const Faction DEFAULT_FACTION = Faction.Melee;
+        private const int DEFAULT_LEVEL = 2;
+        private const int DEFAULT_ABILITY_POINTS = 215;
+        private const int DEFAULT_HEALTH_POINTS = 150;
+
+        private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
+        private readonly Sword DEFAULT_WEAPON = new Sword();
+
         private int abilityPoints;
-        private string faction;
+        private Faction faction;
         private int healthPoints;
         private int level;
         private string name;
@@ -36,7 +46,7 @@ namespace MagicConquerers.Characters.Melee
         }
 
 
-        public string Faction
+        public Faction Faction
         {
             get
             {
@@ -46,14 +56,9 @@ namespace MagicConquerers.Characters.Melee
 
             set
             {
-                if (value == "Melee" || value == "Spellcasters")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "This is an incorrect faction.");
-                }
+
+                this.faction = value;
+
             }
         }
 
@@ -146,14 +151,14 @@ namespace MagicConquerers.Characters.Melee
 
 
         public Assassin()
-            :this("Alice", 1)
+            :this(DEFAULT_NAME, 1)
         {
 
         }
 
 
         public Assassin(string name, int level)
-            :this(name, level, 120)
+            :this(name, level, DEFAULT_HEALTH_POINTS)
         {
             this.Name = name;
             this.Level = level;
@@ -164,10 +169,10 @@ namespace MagicConquerers.Characters.Melee
             this.Name = name;
             this.Level = level;
             this.HealthPoints = healthPoints;
-            this.Faction = "Melee";
-            this.AbilityPoints = 100;
-            this.Weapon = new Sword();
-            this.BodyArmor = new LightLeatherVest();
+            this.Faction = DEFAULT_FACTION;
+            this.AbilityPoints = DEFAULT_HEALTH_POINTS;
+            this.Weapon = DEFAULT_WEAPON;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void Raze()

@@ -1,4 +1,5 @@
 ﻿using System;
+using MagicConquerers.Enums;
 using MagicConquerers.Equipment.Armors.Heavy;
 using MagicConquerers.Equipment.Weapons.Blunt;
 
@@ -6,8 +7,19 @@ namespace MagicConquerers.Characters.Melee
 {
     public class Knight
     {
+
+        private const string DEFAULT_NAME = "Lady Justine";
+        private const Faction DEFAULT_FACTION = Faction.Melee;
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_ABILITY_POINTS = 210;
+        private const int DEFAULT_HEALTH_POINTS = 120;
+
+        private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
+        private readonly Hammer DEFAULT_WEAPON = new Hammer();
+
+
         private int abilityPoints;
-        private string faction;
+        private Faction faction;
         private int healthPoints;
         private int level;
         private string name;
@@ -36,7 +48,7 @@ namespace MagicConquerers.Characters.Melee
         }
 
 
-        public string Faction
+        public Faction Faction
         {
             get
             {
@@ -46,14 +58,8 @@ namespace MagicConquerers.Characters.Melee
 
             set
             {
-                if (value == "Melee" || value == "Spellcasters")
-                {
-                    this.faction = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "This is an incorrect faction.");
-                }
+
+                this.faction = value;
             }
         }
 
@@ -145,14 +151,14 @@ namespace MagicConquerers.Characters.Melee
         }
 
         public Knight()
-            :this("Mandy", 1)
+            :this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
 
         }
 
 
         public Knight(string name, int level)
-            :this(name, level, 130)
+            :this(name, level, DEFAULT_HEALTH_POINTS)
         {
         }
 
@@ -161,10 +167,10 @@ namespace MagicConquerers.Characters.Melee
             this.Name = name;
             this.Level = level;
             this.HealthPoints = healthPoints;
-            this.Faction = "Melee";
-            this.AbilityPoints = 100;
-            this.Weapon = new Hammer();
-            this.BodyArmor = new Chainlink();
+            this.Faction = DEFAULT_FACTION;
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.Weapon = DEFAULT_WEAPON;
+            this.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void HolyBlow()
