@@ -5,7 +5,7 @@ using MagicConquerers.Equipment.Weapons.Sharp;
 
 namespace MagicConquerers.Characters.Melee
 {
-    public class Warrior
+    public class Warrior : Melee
     {
         private const string DEFAULT_NAME = "Braveheart";
         private const Faction DEFAULT_FACTION = Faction.Melee;
@@ -18,111 +18,11 @@ namespace MagicConquerers.Characters.Melee
 
 
 
-        private int abilityPoints;
-        private Faction faction;
-        private int healthPoints;
-        private string name;
-        private int level;
+
+
         private Chainlink bodyArmor;
         private Axe weapon;
 
-        public int AbilityPoints
-        {
-            get
-            {
-                return this.abilityPoints;
-            } 
-            set
-            {
-                if (value >= 0 && value <= 10)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be >= 0 and <= 10");
-                }
-
-            }
-
-        }
-
-
-        public Faction Faction
-        {
-            get
-            {
-                return this.faction;
-            }
-
-
-            set
-            {
-
-                this.faction = value;
-            }
-        }
-
-
-
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-
-            set
-            {
-                if (value.Length > 3 && value.Length <= 12)
-                {
-                    this.name = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "Name length should be between 3 and 12 characters");
-                }
-            }
-        }
-
-        public int Level
-        {
-            get
-            {
-                return this.level;
-            }
-            set
-            {
-                if(value >= 1)
-                {
-                    this.level = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be greater or equal to 0.");
-                }
-            }
-        }
-
-        public int HealthPoints
-        {
-            get
-            {
-                return this.healthPoints;
-            }
-
-            set
-            {
-                if (value >= 0)
-                {
-                    this.healthPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be greater than or equal to 0.");
-                }
-            }
-        }
 
 
 
@@ -165,11 +65,11 @@ namespace MagicConquerers.Characters.Melee
 
         public Warrior(string name, int level, int healthPoints)
         {
-            this.Name = DEFAULT_NAME;
-            this.Level = level;
-            this.HealthPoints = healthPoints;
-            this.Faction = DEFAULT_FACTION;
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.Name = DEFAULT_NAME;
+            base.Level = level;
+            base.HealthPoints = healthPoints;
+            base.Faction = DEFAULT_FACTION;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.Weapon = DEFAULT_WEAPON ;
             this.BodyArmor = DEFAULT_BODY_ARMOR;
         }
