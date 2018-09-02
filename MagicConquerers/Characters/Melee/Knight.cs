@@ -5,7 +5,7 @@ using MagicConquerers.Equipment.Weapons.Blunt;
 
 namespace MagicConquerers.Characters.Melee
 {
-    public class Knight
+    public class Knight : Melee
     {
 
         private const string DEFAULT_NAME = "Lady Justine";
@@ -18,111 +18,11 @@ namespace MagicConquerers.Characters.Melee
         private readonly Hammer DEFAULT_WEAPON = new Hammer();
 
 
-        private int abilityPoints;
-        private Faction faction;
-        private int healthPoints;
-        private int level;
+
         private string name;
         private Chainlink bodyArmor;
         private Hammer weapon;
 
-        public int AbilityPoints
-        {
-            get
-            {
-                return this.abilityPoints;
-            }
-            set
-            {
-                if (value >= 0 && value <= 10)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be >= 0 and <= 10");
-                }
-
-            }
-
-        }
-
-
-        public Faction Faction
-        {
-            get
-            {
-                return this.faction;
-            }
-
-
-            set
-            {
-
-                this.faction = value;
-            }
-        }
-
-
-
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-
-            set
-            {
-                if (value.Length > 3 && value.Length <= 12)
-                {
-                    this.name = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "Name length should be between 3 and 12 characters");
-                }
-            }
-        }
-
-        public int Level
-        {
-            get
-            {
-                return this.level;
-            }
-            set
-            {
-                if (value >= 1)
-                {
-                    this.level = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be greater or equal to 0.");
-                }
-            }
-        }
-
-        public int HealthPoints
-        {
-            get
-            {
-                return this.healthPoints;
-            }
-
-            set
-            {
-                if (value >= 0)
-                {
-                    this.healthPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be greater than or equal to 0.");
-                }
-            }
-        }
 
 
         public Chainlink BodyArmor
@@ -164,11 +64,11 @@ namespace MagicConquerers.Characters.Melee
 
         public Knight(string name, int level, int healthPoints)
         {
-            this.Name = name;
-            this.Level = level;
-            this.HealthPoints = healthPoints;
-            this.Faction = DEFAULT_FACTION;
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.Name = name;
+            base.Level = level;
+            base.HealthPoints = healthPoints;
+            base.Faction = DEFAULT_FACTION;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.Weapon = DEFAULT_WEAPON;
             this.BodyArmor = DEFAULT_BODY_ARMOR;
         }

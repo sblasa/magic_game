@@ -5,7 +5,7 @@ using MagicConquerers.Equipment.Weapons.Sharp;
 
 namespace MagicConquerers.Characters.Melee
 {
-    public class Assassin
+    public class Assassin : Melee
     {
         private const string DEFAULT_NAME = "Nakita";
         private const Faction DEFAULT_FACTION = Faction.Melee;
@@ -16,112 +16,9 @@ namespace MagicConquerers.Characters.Melee
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
-        private int abilityPoints;
-        private Faction faction;
-        private int healthPoints;
-        private int level;
-        private string name;
         private LightLeatherVest bodyArmor;
         private Sword weapon;
 
-        public int AbilityPoints
-        {
-            get
-            {
-                return this.abilityPoints;
-            }
-            set
-            {
-                if (value >= 0 && value <= 10)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be >= 0 and <= 10");
-                }
-
-            }
-
-        }
-
-
-        public Faction Faction
-        {
-            get
-            {
-                return this.faction;
-            }
-
-
-            set
-            {
-
-                this.faction = value;
-
-            }
-        }
-
-
-
-        public string Name
-        {
-            get
-            {
-                return this.name;
-            }
-
-            set
-            {
-                if (value.Length > 3 && value.Length <= 12)
-                {
-                    this.name = value;
-                }
-                else
-                {
-                    throw new ArgumentException(string.Empty, "Name length should be between 3 and 12 characters");
-                }
-            }
-        }
-
-        public int Level
-        {
-            get
-            {
-                return this.level;
-            }
-            set
-            {
-                if (value >= 1)
-                {
-                    this.level = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be greater or equal to 0.");
-                }
-            }
-        }
-
-        public int HealthPoints
-        {
-            get
-            {
-                return this.healthPoints;
-            }
-
-            set
-            {
-                if (value >= 0)
-                {
-                    this.healthPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be greater than or equal to 0.");
-                }
-            }
-        }
 
 
         public LightLeatherVest BodyArmor
@@ -166,11 +63,11 @@ namespace MagicConquerers.Characters.Melee
 
         public Assassin(string name, int level, int healthPoints)
         {
-            this.Name = name;
-            this.Level = level;
-            this.HealthPoints = healthPoints;
-            this.Faction = DEFAULT_FACTION;
-            this.AbilityPoints = DEFAULT_HEALTH_POINTS;
+           base.Name = name;
+           base.Level = level;
+           base.HealthPoints = healthPoints;
+           base.Faction = DEFAULT_FACTION;
+           base.AbilityPoints = DEFAULT_HEALTH_POINTS;
             this.Weapon = DEFAULT_WEAPON;
             this.BodyArmor = DEFAULT_BODY_ARMOR;
         }

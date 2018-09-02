@@ -6,30 +6,19 @@ using System.Threading.Tasks;
 
 namespace MagicConquerers.Equipment.Armors.Heavy
 {
-    public class Chainlink
+    public class Chainlink : Armor
     {
-        private int armorPoints;
+        private const int DEFAULT_ARMOR_POINTS = 10;
 
-
-        public int ArmorPoints
-        {
-            get
-            {
-                return armorPoints;
-            }
-
-            set
-            {
-                armorPoints = value;
-            }
-
-
-
-        }
 
         public Chainlink()
+            : this(DEFAULT_ARMOR_POINTS)
         {
+        }
 
+        public Chainlink(int armorPoints)
+        {
+            this.ArmorPoints = armorPoints;
         }
     }
 }

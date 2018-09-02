@@ -6,29 +6,20 @@ using System.Threading.Tasks;
 
 namespace MagicConquerers.Equipment.Armors.Light
 {
-    public class ClothRobe
+    public class ClothRobe : Light
     {
-        private int armorPoints;
-
-
-        public int ArmorPoints
-        {
-            get
-            {
-                return armorPoints;
-            }
-
-            set
-            {
-                armorPoints = value;
-            }
-
-
-
-        }
+        private const int DEFAULT_AMOR_POINTS = 10;
         public ClothRobe()
+            : this(DEFAULT_AMOR_POINTS)
         {
 
         }
+
+        public ClothRobe(int armorPoints)
+        {
+            this.ArmorPoints = armorPoints;
+        }
+
+
     }
 }

@@ -6,30 +6,20 @@ using System.Threading.Tasks;
 
 namespace MagicConquerers.Equipment.Armors.Leather
 {
-    public class LightLeatherVest
+    public class LightLeatherVest : Leather
     {
-        //fields
-        private int armorPoints;
+        private const int DEFAULT_ARMOR_POINTS = 10;
 
-        public int ArmorPoints
-        {
-            get
-            {
-                return armorPoints;
-            }
-
-            set
-            {
-                armorPoints = value;
-            }
-
-
-
-        }
         //constructor
         public LightLeatherVest()
+            : this(DEFAULT_ARMOR_POINTS)
         {
 
+        }
+
+        public LightLeatherVest(int armorPoints)
+        {
+            this.ArmorPoints = armorPoints;
         }
     }
 }
