@@ -1,43 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 
 namespace MagicConquerers.Equipment.Weapons.Sharp
 {
-    public class Sword
+    public class Sword : Sharp
     {
+        private const int DEFAULT_DAMAGE_POINTS = 10;
 
 
-        //field
-        private int damage;
-
-        public int Damage
-        {
-            get
-            {
-                return damage;
-            }
-
-            set
-            {
-                damage = value;
-            }
-
-
-
-        }
 
         //constructor
         public Sword()
+            : this(DEFAULT_DAMAGE_POINTS)
         {
 
+        }
+
+        public Sword(int armorPoints)
+        {
+            this.DamagePoints = armorPoints;
         }
 
 
         //method
-        public void BloodThirst()
+        public void Bloodthirst()
         {
             throw new NotImplementedException();
 

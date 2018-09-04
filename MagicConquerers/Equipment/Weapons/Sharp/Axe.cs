@@ -1,34 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MagicConquerers.Equipment.Weapons.Sharp
 
 {
-    public class Axe
+    public class Axe : Sharp
     {
-        private int damage;
+        private const int DEFAULT_DAMAGE_POINTS = 10;
 
-        public int Damage
+
+        public Axe()
+            : this(DEFAULT_DAMAGE_POINTS)
         {
-            get
-            {
-                return damage;
-            }
-
-            set
-            {
-                damage = value;
-            }
-
-
 
         }
 
-        public Axe()
+        public Axe(int armorPoints)
         {
+            this.DamagePoints = armorPoints;
 
         }
 

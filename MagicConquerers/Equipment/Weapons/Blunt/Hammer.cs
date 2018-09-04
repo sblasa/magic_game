@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MagicConquerers.Equipment.Weapons.Blunt
 {
-    public class Hammer
+    public class Hammer : Blunt
     {
-
-        //field
-        private int damage;
-
-
+        private const int DEFAULT_DAMAGE_POINTS = 10;
 
         //constructor
         public Hammer()
+            : this(DEFAULT_DAMAGE_POINTS)
         {
 
+        }
+
+        public Hammer(int armorPoints)
+        {
+            this.DamagePoints = armorPoints;
         }
 
 
