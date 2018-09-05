@@ -3,7 +3,7 @@
 
 namespace MagicConquerers.Equipment.Weapons
 {
-    public class Weapon
+    public abstract class Weapon
     {
         //field
         private int damagePoints;

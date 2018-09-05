@@ -2,7 +2,7 @@
 
 namespace MagicConquerers.Equipment.Armors
 {
-    public class Armor
+    public abstract class Armor
     {
         private int armorPoints;
 

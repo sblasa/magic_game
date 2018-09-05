@@ -1,10 +1,11 @@
 ﻿
+using MagicConquerers.Characters.Interfaces;
 using MagicConquerers.Enums;
 using System;
 
 namespace MagicConquerers.Characters
 {
-    public class Character
+    public abstract class Character : IAttack, IDefend
     {
         private Faction faction;
         private int healthPoints;
@@ -86,5 +87,10 @@ namespace MagicConquerers.Characters
             }
         }
 
+        public abstract void Attack();
+
+        public abstract void Defend();
+
+        public abstract void SpecialAttack();
     }
 }

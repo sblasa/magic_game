@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MagicConquerers.Equipment.Armors.Heavy
 {
-    public class Heavy : Armor
+    public abstract class Heavy : Armor
     {
     }
 }
