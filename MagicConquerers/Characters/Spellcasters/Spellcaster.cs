@@ -15,7 +15,7 @@ namespace MagicConquerers.Characters.Spellcasters
             }
             set
             {
-                if (value >= 0 && value <= 10)
+                if (value >= 0 && value <= 250)
                 {
                     this.manaPoints = value;
                 }

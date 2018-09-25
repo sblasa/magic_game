@@ -1,6 +1,8 @@
 ﻿
 using MagicConquerers.Characters.Interfaces;
 using MagicConquerers.Enums;
+using MagicConquerers.Equipment.Armors;
+using MagicConquerers.Equipment.Weapons;
 using System;
 
 namespace MagicConquerers.Characters
@@ -11,6 +13,10 @@ namespace MagicConquerers.Characters
         private int healthPoints;
         private string name;
         private int level;
+        private Armor bodyArmor;
+        private Weapon weapon;
+
+
 
 
         public Faction Faction
@@ -86,6 +92,32 @@ namespace MagicConquerers.Characters
                 }
             }
         }
+
+        public Armor BodyArmor
+        {
+            get
+            {
+                return this.bodyArmor;
+            }
+            set
+            {
+                this.bodyArmor = value;
+            }
+        }
+
+        public Weapon Weapon
+        {
+            get
+            {
+                return this.weapon;
+            }
+            set
+            {
+                this.weapon = value;
+            }
+        }
+
+
 
         public abstract void Attack();
 

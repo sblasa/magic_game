@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Equipment.Interfaces;
+using System;
 
 
 namespace MagicConquerers.Equipment.Weapons
 {
-    public abstract class Weapon
+    public abstract class Weapon : IRestore
     {
         //field
         private int damagePoints;
@@ -27,5 +28,7 @@ namespace MagicConquerers.Equipment.Weapons
             }
         }
 
+        public abstract void Mend();
+        public abstract void Rebuild();
     }
 }

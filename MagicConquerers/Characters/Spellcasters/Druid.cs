@@ -15,38 +15,7 @@ namespace MagicConquerers.Characters.Spellcasters
 
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Staff DEFAULT_WEAPON = new Staff();
-
-
-        private LightLeatherVest bodyArmor;
-        private Staff weapon;
-
   
-
-
-        public LightLeatherVest BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-
-        public Staff Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
 
         public Druid()
             :this(DEFAULT_NAME, 1)
@@ -67,8 +36,8 @@ namespace MagicConquerers.Characters.Spellcasters
            base.HealthPoints = healthPoints;
            base.Faction = DEFAULT_FACTION;
            base.ManaPoints = DEFAULT_MANA_POINTS;
-            this.Weapon = DEFAULT_WEAPON;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
+           base.Weapon = DEFAULT_WEAPON;
+           base.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void Moonfire()

@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Interfaces\IAttack.cs" />
+    <Compile Include="Characters\Interfaces\IDefend.cs" />
     <Compile Include="Characters\Melee\Assassin.cs" />
     <Compile Include="Characters\Melee\Knight.cs" />
     <Compile Include="Characters\Melee\Melee.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Equipment\Armors\Leather\LightLeatherVest.cs" />
     <Compile Include="Equipment\Armors\Light\ClothRobe.cs" />
     <Compile Include="Equipment\Armors\Light\Light.cs" />
+    <Compile Include="Equipment\Interfaces\IRestore.cs" />
     <Compile Include="Equipment\Weapons\Blunt\Blunt.cs" />
     <Compile Include="Equipment\Weapons\Sharp\Axe.cs" />
     <Compile Include="Equipment\Weapons\Blunt\Hammer.cs" />

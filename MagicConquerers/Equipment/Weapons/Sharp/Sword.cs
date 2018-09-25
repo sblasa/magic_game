@@ -29,5 +29,16 @@ namespace MagicConquerers.Equipment.Weapons.Sharp
             throw new NotImplementedException();
 
         }
+
+        public override void Mend()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Rebuild()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

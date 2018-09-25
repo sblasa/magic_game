@@ -20,11 +20,25 @@ namespace MagicConquerers.Equipment.Weapons.Blunt
         }
 
 
+
         //method 
 
         public void Stun()
         {
             throw new NotImplementedException();
         }
+
+        public override void Mend()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Rebuild()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
+
 }

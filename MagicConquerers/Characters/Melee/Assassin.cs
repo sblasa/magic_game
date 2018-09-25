@@ -16,35 +16,7 @@ namespace MagicConquerers.Characters.Melee
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
-        private LightLeatherVest bodyArmor;
-        private Sword weapon;
 
-
-
-        public LightLeatherVest BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-
-        public Sword Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
 
 
         public Assassin()
@@ -67,9 +39,9 @@ namespace MagicConquerers.Characters.Melee
            base.Level = level;
            base.HealthPoints = healthPoints;
            base.Faction = DEFAULT_FACTION;
-           base.AbilityPoints = DEFAULT_HEALTH_POINTS;
-            this.Weapon = DEFAULT_WEAPON;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
+           this.AbilityPoints = DEFAULT_HEALTH_POINTS;
+           base.Weapon = DEFAULT_WEAPON;
+           base.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void Raze()

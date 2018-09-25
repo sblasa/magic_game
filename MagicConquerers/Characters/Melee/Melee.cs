@@ -1,11 +1,11 @@
 ﻿using System;
 
-
 namespace MagicConquerers.Characters.Melee
 {
     public abstract class Melee : Character
     {
         private int abilityPoints;
+
         public int AbilityPoints
         {
             get
@@ -14,17 +14,16 @@ namespace MagicConquerers.Characters.Melee
             }
             set
             {
-                if (value >= 0 && value <= 10)
+                if (value >= 0 && value <= 300)
                 {
                     this.abilityPoints = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException(string.Empty, "This value needs to be >= 0 and <= 10");
+                    throw new ArgumentOutOfRangeException(string.Empty, "Inappropriate value, the value should be >= 0 and <= 10.");
                 }
-
             }
-
         }
     }
 }
+

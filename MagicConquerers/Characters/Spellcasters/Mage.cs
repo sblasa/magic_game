@@ -13,40 +13,12 @@ namespace MagicConquerers.Characters.Spellcasters
         private const int DEFAULT_LEVEL = 2;
         private const int DEFAULT_MANA_POINTS = 180;
         private const int DEFAULT_HEALTH_POINTS = 160;
+        private const int DEFAULT_ABILITY_POINTS = 100;
+
 
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
         private readonly Staff DEFAULT_WEAPON = new Staff();
 
-        private ClothRobe bodyArmor;
-        private Staff weapon;
-
-
-
-
-        public ClothRobe BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-
-        public Staff Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
 
         public Mage()
             : this(DEFAULT_NAME, 1)
@@ -67,8 +39,8 @@ namespace MagicConquerers.Characters.Spellcasters
             base.HealthPoints = healthPoints;
             base.Faction = DEFAULT_FACTION;
             base.ManaPoints = DEFAULT_MANA_POINTS;
-            this.Weapon = DEFAULT_WEAPON;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void ArcaneWrath()

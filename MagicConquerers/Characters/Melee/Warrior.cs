@@ -19,39 +19,6 @@ namespace MagicConquerers.Characters.Melee
 
 
 
-
-        private Chainlink bodyArmor;
-        private Axe weapon;
-
-
-
-
-        public Chainlink BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-
-        public Axe Weapon
-        {
-            get
-            {
-                return this.weapon;
-            } 
-            set
-            {
-                this.weapon = value;
-            }
-        }
-
-
         public Warrior()
             :this (DEFAULT_NAME, 1)
         {
@@ -70,8 +37,8 @@ namespace MagicConquerers.Characters.Melee
             base.HealthPoints = healthPoints;
             base.Faction = DEFAULT_FACTION;
             base.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            this.Weapon = DEFAULT_WEAPON ;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
+           base.Weapon = DEFAULT_WEAPON ;
+           base.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void Strike()
@@ -91,17 +58,17 @@ namespace MagicConquerers.Characters.Melee
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            this.Strike();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            this.SkinHarden();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            this.Execute();
         }
     }
 }

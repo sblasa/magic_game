@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Equipment.Interfaces;
+using System;
 
 namespace MagicConquerers.Equipment.Armors
 {
-    public abstract class Armor
+    public abstract class Armor 
     {
         private int armorPoints;
 
@@ -28,5 +29,6 @@ namespace MagicConquerers.Equipment.Armors
                 }
             }
         }
+
     }
 }

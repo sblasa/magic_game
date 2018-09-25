@@ -20,35 +20,6 @@ namespace MagicConquerers.Characters.Melee
 
 
         private string name;
-        private Chainlink bodyArmor;
-        private Hammer weapon;
-
-
-
-        public Chainlink BodyArmor
-        {
-            get
-            {
-                return this.bodyArmor;
-            }
-            set
-            {
-                this.bodyArmor = value;
-            }
-        }
-
-
-        public Hammer Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-            set
-            {
-                this.weapon = value;
-            }
-        }
 
         public Knight()
             :this(DEFAULT_NAME, DEFAULT_LEVEL)
@@ -69,8 +40,8 @@ namespace MagicConquerers.Characters.Melee
             base.HealthPoints = healthPoints;
             base.Faction = DEFAULT_FACTION;
             base.AbilityPoints = DEFAULT_ABILITY_POINTS;
-            this.Weapon = DEFAULT_WEAPON;
-            this.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
         }
 
         public void HolyBlow()
@@ -90,17 +61,17 @@ namespace MagicConquerers.Characters.Melee
 
         public override void Attack()
         {
-            throw new NotImplementedException();
+            this.HolyBlow();
         }
 
         public override void Defend()
         {
-            throw new NotImplementedException();
+            this.PurifySoul();
         }
 
         public override void SpecialAttack()
         {
-            throw new NotImplementedException();
+            this.RighteousWings();
         }
     }
 }
