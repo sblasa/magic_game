@@ -8,12 +8,6 @@ namespace MagicConquerers.Characters.Spellcasters
     public class Mage : Spellcaster
     {
 
-        private const string DEFAULT_NAME = "Isabella";
-        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
-        private const int DEFAULT_LEVEL = 2;
-        private const int DEFAULT_MANA_POINTS = 180;
-        private const int DEFAULT_HEALTH_POINTS = 160;
-        private const int DEFAULT_ABILITY_POINTS = 100;
 
 
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
@@ -21,13 +15,13 @@ namespace MagicConquerers.Characters.Spellcasters
 
 
         public Mage()
-            : this(DEFAULT_NAME, 1)
+            : this(Consts.Mage.NAME, 1)
         {
 
         }
 
         public Mage(string name, int level)
-            :this(name, level, DEFAULT_HEALTH_POINTS)
+            :this(name, level, Consts.Mage.HEALTH_POINTS)
         {
         }
 
@@ -37,41 +31,44 @@ namespace MagicConquerers.Characters.Spellcasters
             base.Name = name;
             base.Level = level;
             base.HealthPoints = healthPoints;
-            base.Faction = DEFAULT_FACTION;
-            base.ManaPoints = DEFAULT_MANA_POINTS;
+            base.Faction = Consts.Mage.FACTION;
+            base.ManaPoints = Consts.Mage.MANA_POINTS;
             base.Weapon = DEFAULT_WEAPON;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.IsAlive = true;
+            base.Scores = 0;
+
         }
 
-        public void ArcaneWrath()
+        public int ArcaneWrath()
         {
             throw new NotImplementedException();
         }
 
-        public void Firewall()
+        public int Fireball()
         {
-            throw new NotImplementedException();
+            return base.Weapon.DamagePoints + 10;
 
         }
 
-        public void Meditation()
+        public int Meditation()
         {
-            throw new NotImplementedException();
+            return base.BodyArmor.ArmorPoints + 5;
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            throw new NotImplementedException();
+            return this.Fireball();
         }
 
-        public override void Defend()
+        public override int Defend()
         {
-            throw new NotImplementedException();
+            return this.Meditation();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            throw new NotImplementedException();
+            return this.ArcaneWrath();
         }
     }
 }

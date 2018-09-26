@@ -5,7 +5,7 @@ namespace MagicConquerers.Characters.Interfaces
 {
     public interface IAttack
     {
-        void Attack();
-        void SpecialAttack();
+        int Attack();
+        int SpecialAttack();
     }
 }

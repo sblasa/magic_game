@@ -15,6 +15,8 @@ namespace MagicConquerers.Characters
         private int level;
         private Armor bodyArmor;
         private Weapon weapon;
+        private bool isAlive;
+        private int scores;
 
 
 
@@ -31,6 +33,31 @@ namespace MagicConquerers.Characters
             {
 
                 this.faction = value;
+            }
+        }
+
+        public bool IsAlive
+        {
+            get
+           {
+                return this.isAlive;
+            }
+
+             set
+            {
+                isAlive = value;
+            }
+        }
+
+        public int Scores
+        {
+            get
+            {
+                return this.scores;
+            }
+            set
+            {
+                this.scores = value;
             }
         }
 
@@ -119,10 +146,47 @@ namespace MagicConquerers.Characters
 
 
 
-        public abstract void Attack();
+        public abstract int Attack();
 
-        public abstract void Defend();
+        public abstract int Defend();
 
-        public abstract void SpecialAttack();
+        public abstract int SpecialAttack();
+
+        public void TakeDamage(int damage, string attackerName)
+        {
+            if (this.Defend() < damage)
+            {
+                this.healthPoints = this.healthPoints - damage + Defend();
+
+                if(this.healthPoints <= 0)
+                {
+                    this.IsAlive = false;
+
+                }
+
+            }
+             else
+            {
+                Console.WriteLine("Not enough damage to this character!");
+            }
+            if (!this.isAlive)
+            {
+                Console.WriteLine($"{this.name} received {damage} damage from {attackerName} damage, and is now dead!");
+            }
+            else
+            {
+                Console.WriteLine($"{this.name} received {damage} damage from {attackerName} damage, and now has {this.healthPoints} health points!");
+            }
+        }
+
+        public void WonBattle()
+        {
+            this.scores++;
+
+            if (this.scores % 10 == 0)
+            {
+                this.level++;
+            }
+        }
     }
 }

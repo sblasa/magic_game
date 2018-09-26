@@ -4,6 +4,6 @@ namespace MagicConquerers.Characters.Interfaces
 {
     public interface IDefend
     {
-        void Defend();
+        int Defend();
     }
 }
